@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка трехзначного числа</title>
+
+    <script>
+        function checkDigits() {
+            let number = prompt("Введите трехзначное число:");
+
+            if ( number >= 1000) {
+                alert("Пожалуйста, введите корректное трехзначное число.");
+                return;
+            }                                                                                                        
+
+            const digits = number.split('');
+            const hasDuplicates = new Set(digits).size < digits.length;
+
+            if (hasDuplicates) {
+                alert("В числе есть одинаковые цифры.");
+            } else {
+                alert("В числе нет одинаковых цифр.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <button onclick="checkDigits()">Проверить трехзначное число</button>
+
+</body>
+</html>

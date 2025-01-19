@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение возраста</title>
+    <script>
+        function checkAge() {
+            let age = prompt("Введите ваш возраст:");
+            age = Number(age);
+
+            let result;
+
+            if (isNaN(age) || age < 0) {
+                result = "Пожалуйста, введите корректный возраст.";
+            } else if (age <= 2) {
+                result = "Вы - ребенок.";
+            } else if (age <= 12) {
+                result = "Вы - младший подросток.";
+            } else if (age <= 18) {
+                result = "Вы - подросток.";
+            } else if (age < 60) {
+                result = "Вы - взрослый.";
+            } else if (age < 140) {
+                result = "Вы - пожилой человек.";
+            } else {
+                result = "Люди столько не живут 💀";
+            }
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Определение возраста</h1>
+    <button onclick="checkAge()">Узнать, кто я</button>
+    <p id="result"></p>
+    <p>Роблоксерам ставить свой реальный возраст ((два года))</p>
+
+    <style>
+        /* Добавьте стили по желанию */
+    </style>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <script>
+        function convertCurrency() {
+            const amount = parseFloat(prompt("Введите сумму в USD:"));
+            const currency = prompt("Выберите валюту для конвертации (EUR, UAN, AZN):").toUpperCase();
+
+            if (isNaN(amount) || amount <= 0) {
+                alert('Пожалуйста, введите корректную сумму.');
+                return;
+            }
+
+            let convertedAmount;
+
+            switch (currency) {
+                case 'EUR':
+                    convertedAmount = (amount * 0.85).toFixed(2); 
+                    alert(`${amount} USD = ${convertedAmount} EUR`);
+                    break;
+                case 'UAN':
+                    convertedAmount = (amount * 27.00).toFixed(2); 
+                    alert(`${amount} USD = ${convertedAmount} UAN`);
+                    break;
+                case 'AZN':
+                    convertedAmount = (amount * 1.70).toFixed(2); 
+                    alert(`${amount} USD = ${convertedAmount} AZN`);
+                    break;
+                default:
+                    alert('Выберите корректную валюту (EUR, UAN, AZN).');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Конвертер валют</h1>
+    <button onclick="convertCurrency()">Конвертировать</button>
+</body>
+</html>

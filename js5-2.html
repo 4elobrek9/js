@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка палиндрома</title>
+    <script>
+        function isPalindrome(num) {
+            const str = num.toString();
+            return str === str.split('').reverse().join('');
+        }
+
+        function checkPalindrome() {
+            const input = prompt("Введите пятиразрядное число:");
+            const number = parseInt(input);
+
+            if (number >= 10000 && number <= 99999) {
+                if (isPalindrome(number)) {
+                    alert(`${number} является палиндромом.`);
+                } else {
+                    alert(`${number} не является палиндромом.`);
+                }
+            } else {
+                alert('Пожалуйста, введите пятиразрядное число.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Проверка палиндрома</h1>
+    <button onclick="checkPalindrome()">Проверить число</button>
+</body>
+</html>

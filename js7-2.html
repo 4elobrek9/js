@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скидка на покупку</title>
+    <script>
+        function calculateDiscount() {
+            const amount = parseFloat(prompt("Введите сумму покупки:"));
+
+            if (isNaN(amount) || amount <= 0) {
+                alert('Пожалуйста, введите корректную сумму.');
+                return;
+            }
+
+            let discount = 0;
+
+            if (amount >= 200 && amount < 300) {
+                discount = 0.03; // 3%
+            } else if (amount >= 300 && amount < 500) {
+                discount = 0.05; // 5%
+            } else if (amount >= 500) {
+                discount = 0.07; // 7%
+            }
+
+            const discountAmount = (amount * discount).toFixed(2);
+            const totalAmount = (amount - discountAmount).toFixed(2);
+
+            alert(`Сумма покупки: ${amount} руб.\nСкидка: ${discountAmount} руб.\nСумма к оплате: ${totalAmount} руб.`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Калькулятор скидки</h1>
+    <button onclick="calculateDiscount()">Рассчитать сумму к оплате</button>
+</body>
+</html>

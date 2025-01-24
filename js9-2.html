@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Викторина</title>
+    <script>
+        function startQuiz() {
+            let score = 0;
+
+            // Вопрос 1
+            const question1 = prompt("1. Какой цвет неба в ясный день?\n1) Зеленый\n2) Синий\n3) Красный");
+            if (question1 === '2') {
+                score += 2; // Правильный ответ
+            }
+
+            // Вопрос 2
+            const question2 = prompt("2. Какой океан самый большой?\n1) Атлантический\n2) Индийский\n3) Тихий");
+            if (question2 === '3') {
+                score += 2; // Правильный ответ
+            }
+
+            // Вопрос 3
+            const question3 = prompt("3. Какое животное является самым большим на Земле?\n1) Слон\n2) Кит\n3) Жираф");
+            if (question3 === '2') {
+                score += 2; // Правильный ответ
+            }
+
+            alert(`Вы набрали ${score} баллов.`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Викторина</h1>
+    <button onclick="startQuiz()">Начать викторину</button>
+</body>
+</html>

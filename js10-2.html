@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Следующая дата</title>
+    <script>
+        function isLeapYear(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        function getNextDate() {
+            const day = parseInt(prompt("Введите день:"));
+            const month = parseInt(prompt("Введите месяц:"));
+            const year = parseInt(prompt("Введите год:"));
+
+            if (isNaN(day) || isNaN(month) || isNaN(year) || day <= 0 || month <= 0 || month > 12) {
+                alert('Пожалуйста, введите корректные значения даты.');
+                return;
+            }
+
+            const daysInMonth = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            // Проверка на корректность дня
+            if (day > daysInMonth[month - 1]) {
+                alert('Некорректный день для указанного месяца.');
+                return;
+            }
+
+            // Увеличение дня
+            let nextDay = day + 1;
+            let nextMonth = month;
+            let nextYear = year;
+
+            if (nextDay > daysInMonth[month - 1]) {
+                nextDay = 1;
+                nextMonth++;
+                if (nextMonth > 12) {
+                    nextMonth = 1;
+                    nextYear++;
+                }
+            }
+
+            alert(`Следующая дата: ${nextDay}.${nextMonth}.${nextYear}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Определение следующей даты</h1>
+    <button onclick="getNextDate()">Узнать следующую дату</button>
+</body>
+</html>

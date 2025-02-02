@@ -1,0 +1,15 @@
+.body1{
+background-color: purple;
+border-radius: 2%;
+display: flex;
+justify-content: center;
+height: 100%;
+width: 100%;
+}
+
+.lol{
+/* align: center; */
+background-color: orange;
+
+
+}

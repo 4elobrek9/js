@@ -1,23 +1,38 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: url('sigma.png') no-repeat center center fixed; /* Замените на URL вашего фонового изображения */
+    background-size: cover;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
 }
-.body1 {
-    text-align: center;
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+.body1, .body2, .body3 {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.body1:hover, .body2:hover, .body3:hover {
+    transform: scale(1.05);
 }
 h1 {
     margin-bottom: 20px;
-    font-size: 2.5em;
+    font-size: 2em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 input {
@@ -25,11 +40,11 @@ input {
     margin: 10px;
     border: none;
     border-radius: 5px;
-    width: 200px;
+    width: 80%;
     font-size: 1em;
 }
 button {
-    padding: 15px 15px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     background-color: #ff4757;
@@ -40,4 +55,22 @@ button {
 }
 button:hover {
     background-color: #ff6b81;
+}
+.sakura {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: -10%;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 1;
+}
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(100vh / 4));
+    }
 }

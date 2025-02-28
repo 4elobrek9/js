@@ -7,13 +7,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="body1">
-    <div class="lol">
-        <h1>Результат возведенных чисел</h1>
-        <input type="number" id="num1" placeholder="Введите число">
-        <input type="number" id="num2" placeholder="в какую степень?">
-        <button onclick="checkNumbers()">РЕЗУЛЬТАТ</button>
-    </div>
+    <div class="container">
+        <div class="body1">
+            <div class="lol">
+                <h1>Возведенных чисел</h1>
+                <input type="number" id="num1" placeholder="Введите число">
+                <input type="number" id="num2" placeholder="в какую степень?">
+                <button onclick="checkNumbers()">РЕЗУЛЬТАТ</button>
+                <p id="result" style="margin-top: 20px; font-size: 1.5em;"></p>
+            </div>
+        </div>
+      
+        <div class="body2">
+            <div class="boom">
+                <h1>Поиск НОК</h1>
+                <input type="number" id="Nok1" placeholder="Введите первое число">
+                <input type="number" id="Nok2" placeholder="Введите второе число">
+                <button onclick="findNok()">РЕЗУЛЬТАТ</button>
+                <p id="nokResult" style="margin-top: 20px; font-size: 1.5em;"></p>
+            </div>
+        </div>
+      
+        <div class="body3">
+            <div class="boom">
+                <h1>Поиск НОД</h1>
+                <input type="number" id="Nod1" placeholder="Введите число 1">
+                <input type="number" id="Nod2" placeholder="Введите число 2">
+                <button onclick="findNod()">РЕЗУЛЬТАТ</button>
+                <p id="nodResult" style="margin-top: 20px; font-size: 1.5em;"></p>
+            </div>
+        </div>
+      </div>
 </div>
 <script src="script.js"></script>
 </body>

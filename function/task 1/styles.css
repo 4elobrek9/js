@@ -60,7 +60,7 @@ button:hover {
     height: 50px;
     width: 50px;
     position: absolute;
-    top: -10%;
+    top: -0.5%;
     opacity: 0.8;
     pointer-events: none;
     animation: fall linear infinite;

@@ -203,7 +203,41 @@ function findNod() {
     document.getElementById('nodResult').innerText = 'Наибольший общий делитель: ' + result;
 }
 
+// function createSakura() {
+//     const sakura = document.createElement('img');
+//     sakura.src = 'sakura-Photoroom.png'; // Замените на URL вашего изображения лепестка
+//     sakura.alt = 'Сакура';
+//     sakura.width = 30;
+//     sakura.className = 'sakura';
+    
+//     // Установка случайной позиции по горизонтали
+//     const randomX = Math.random() * 100;
+//     sakura.style.left = `${randomX}vw`;
+
+//     // Установка случайной анимации
+//     const animationDuration = Math.random() * 5 + 5; // от 5 до 10 секунд
+//     sakura.style.animationDuration = `${animationDuration}s`;
+
+//     document.body.appendChild(sakura);
+
+//     // Удаление лепестка после завершения анимации
+//     sakura.addEventListener('animationend', () => {
+//         sakura.remove();
+//     });
+// }
+
+// // Создание лепестков сакуры каждые 1 секунду
+// setInterval(createSakura, 100);
+
+const MAX_SAKURA = 50; // Максимальное количество лепестков
+let sakuraCount = 0; // Счетчик текущих лепестков
+
 function createSakura() {
+    // Проверка, не превышает ли текущее количество лепестков максимальное
+    if (sakuraCount >= MAX_SAKURA) {
+        return; // Прекратить выполнение, если лимит достигнут
+    }
+
     const sakura = document.createElement('img');
     sakura.src = 'sakura-Photoroom.png'; // Замените на URL вашего изображения лепестка
     sakura.alt = 'Сакура';
@@ -212,6 +246,7 @@ function createSakura() {
     
     // Установка случайной позиции по горизонтали
     const randomX = Math.random() * 100;
+    sakura.style.position = 'absolute'; // Добавлено для правильного позиционирования
     sakura.style.left = `${randomX}vw`;
 
     // Установка случайной анимации
@@ -219,12 +254,35 @@ function createSakura() {
     sakura.style.animationDuration = `${animationDuration}s`;
 
     document.body.appendChild(sakura);
+    sakuraCount++; // Увеличение счетчика при создании нового лепестка
 
     // Удаление лепестка после завершения анимации
-    sakura.addEventListener('animationend', () => {
-        sakura.remove();
+    sakura.addEventListener('animationend', function handler() {
+        sakura.removeEventListener('animationend', handler); // Удалить обработчик события
+        sakura.remove(); // Удалить элемент
+        sakuraCount--; // Уменьшение счетчика при удалении лепестка
     });
 }
 
 // Создание лепестков сакуры каждые 1 секунду
-setInterval(createSakura, 100);
+setInterval(createSakura, 1000); // Изменено на 1000 мс (1 секунда)
+
+document.getElementById('hamburger').onclick = function() {
+    const menu = document.getElementById('menu');
+    const buttons = document.querySelectorAll('.menu-btn');
+
+    if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+        buttons.forEach(btn => {
+            btn.style.opacity = '0'; // Скрываем кнопки
+            btn.style.transform = 'translateY(20px)'; // Сдвигаем вниз
+        });
+    } else {
+        menu.style.display = 'flex';
+        buttons.forEach((btn, index) => {
+            btn.style.transitionDelay = `${index * 100}ms`; // Задержка для каждой кнопки
+            btn.style.opacity = '0.2'; // Показываем кнопки
+            btn.style.transform = 'translateY(0)'; // Возвращаем на место
+        });
+    }
+};

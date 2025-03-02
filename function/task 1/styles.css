@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: url('sigma.png') no-repeat center center fixed; /* Замените на URL вашего фонового изображения */
+    background: url('sakura-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     display: flex;
@@ -12,12 +12,55 @@ body {
     overflow: hidden;
     position: relative;
 }
+
 .container {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
 }
+
+.hamburger {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.menu {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    opacity: 0.9;
+    display: none; /* Скрыто по умолчанию */
+    flex-direction: row;
+    align-items: center;
+    transition: transform 1.5s;
+}
+
+.menu-btn {
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    color: #333;
+    border: black 1px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    opacity: 0; /* Изначально невидимо */
+    transform: translateY(20px); /* Сдвинут вниз */
+    animation: fadeIn 0.5s forwards; /* Анимация появления */
+}
+
+.menu-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 1); /* Непрозрачный при наведении */
+}
+
 .body1, .body2, .body3 {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -27,14 +70,17 @@ body {
     text-align: center;
     transition: transform 0.3s;
 }
+
 .body1:hover, .body2:hover, .body3:hover {
     transform: scale(1.05);
 }
+
 h1 {
     margin-bottom: 20px;
     font-size: 2em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
+
 input {
     padding: 10px;
     margin: 10px;
@@ -43,6 +89,7 @@ input {
     width: 80%;
     font-size: 1em;
 }
+
 button {
     padding: 10px 20px;
     border: none;
@@ -53,24 +100,35 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 button:hover {
     background-color: #ff6b81;
 }
+
 .sakura {
     height: 50px;
     width: 50px;
     position: absolute;
     top: -0.5%;
-    opacity: 0.8;
+    opacity: 1;
     pointer-events: none;
     animation: fall linear infinite;
     z-index: 1;
 }
+
 @keyframes fall {
     0% {
         transform: translateY(0);
     }
     100% {
         transform: translateY(calc(100vh / 4));
+    }
+}
+
+/* Анимация появления кнопок */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Возвращаем на место */
     }
 }

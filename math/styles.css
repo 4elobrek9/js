@@ -13,6 +13,19 @@ body {
     position: relative;
 }
 
+.container1 {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin-top: 52%;
+    width: 15%;
+    text-align: center;
+    transition: transform 0.3s;
+    position: absolute;
+
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -41,7 +54,7 @@ body {
 }
 
 .menu-btn {
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    background-color: rgba(255, 255, 255, 0.8);
     color: #333;
     border: black 1px;
     border-radius: 50%;
@@ -51,17 +64,17 @@ body {
     cursor: pointer;
     margin: 10px;
     transition: transform 0.3s, background-color 0.3s;
-    opacity: 0; /* Изначально невидимо */
-    transform: translateY(20px); /* Сдвинут вниз */
-    animation: fadeIn 0.5s forwards; /* Анимация появления */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
 }
 
 .menu-btn:hover {
     transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 1); /* Непрозрачный при наведении */
+    background-color: rgba(255, 255, 255, 1);
 }
 
-.body1, .body2, .body3 {
+.body2, .body3 {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
@@ -125,10 +138,38 @@ button:hover {
     }
 }
 
-/* Анимация появления кнопок */
 @keyframes fadeIn {
     to {
         opacity: 1;
-        transform: translateY(0); /* Возвращаем на место */
+        transform: translateY(0);
     }
+}
+
+.tooltip {
+    color: black;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 255, 255, 0.897);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

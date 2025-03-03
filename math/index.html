@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="hamburger" id="hamburger">
+    <div class="hamburger" id="hamburger">
             &#9776; <!-- Символ гамбургера -->
         </div>
         <div class="menu" id="menu">
             <button class="menu-btn" onclick="window.location.href='geom.html'">△⊞△</button>
             <button class="menu-btn" onclick="window.location.href='fizk.html'">Физика</button>
         </div>
+
+
+
+    <div class="container1">
         <div class="body1">
             <div class="lol">
                 <h1>Возведенных чисел</h1>
@@ -22,38 +25,79 @@
                 <input type="number" id="num2" placeholder="в какую степень?">
                 <button onclick="checkNumbers()">РЕЗУЛЬТАТ</button>
                 <p id="result" style="margin-top: 20px; font-size: 1.5em;"></p>
+                <div style="position: absolute; top: 10px; right: 10px;" class="tooltip">
+                    <img src="123s.png" alt="Tooltip" style="width: 30px; height: 30px;">
+                    <span class="tooltiptext">числа просто умножаются сами на себя</span>
+                </div>
             </div>
         </div>
-      
+
+    </div>
+    <div class="container">
+        
+
+        <h1 class="pipiska">6 КЛАСС</h1>
+
+
         <div class="body2">
+
             <div class="boom">
                 <h1>Поиск НОК</h1>
                 <input type="number" id="Nok1" placeholder="Введите первое число">
                 <input type="number" id="Nok2" placeholder="Введите второе число">
                 <button onclick="findNok()">РЕЗУЛЬТАТ</button>
                 <p id="nokResult" style="margin-top: 20px; font-size: 1.5em;"></p>
+                <div style="position: absolute; top: 10px; right: 10px;" class="tooltip">
+                    <img src="123s.png" alt="Tooltip" style="width: 30px; height: 30px;">
+                    <span class="tooltiptext">
+                    простые множетели чисел перемножаются с друг другом</span>
+                </div>
             </div>
         </div>
-      
+
         <div class="body3">
-            <div class="boom">
+            <div class="boom1">
                 <h1>Поиск НОД</h1>
                 <input type="number" id="Nod1" placeholder="Введите число 1">
                 <input type="number" id="Nod2" placeholder="Введите число 2">
                 <button onclick="findNod()">РЕЗУЛЬТАТ</button>
                 <p id="nodResult" style="margin-top: 20px; font-size: 1.5em;"></p>
+                <div style="position: absolute; top: 10px; right: 10px;" class="tooltip">
+                    <img src="123s.png" alt="Tooltip" style="width: 30px; height: 30px;">
+                    <span class="tooltiptext">
+                    числа делятся до того момента пока не будут оба кратны наибольшему единому числу</span>
+                </div>
             </div>
         </div>
 
         <div class="body3">
-            <div class="boom">
+            <div class="boom2">
                 <h1>Поиск простых чисел числа</h1>
                 <input type="number" id="ez_num" placeholder="Какое число разделяем?">
                 <button onclick="find_ez_num()">РЕЗУЛЬТАТ</button>
                 <p id="res_ez_num" style="margin-top: 20px; font-size: 1.5em;"></p>
+                <div style="position: absolute; top: 10px; right: 10px;" class="tooltip">
+                    <img src="123s.png" alt="Tooltip" style="width: 30px; height: 30px;">
+                    <span class="tooltiptext">
+                    число делится на 2 или 3 столько раз пока остаток не станет больше или меньше нуля</span>
+                </div>
             </div>
         </div>
-      </div>
+        <div class="body3">
+            <div class="boom2">
+                <h1>Поиск процента от числа</h1>
+                <input type="number" id="proz1" placeholder="Какое число считаем?">
+                <input type="number" id="proz2" placeholder="Какое процент считаем?">
+                <button onclick="find_proz()">РЕЗУЛЬТАТ</button>
+                <p id="prozzz" style="margin-top: 20px; font-size: 1.5em;"></p>
+                <div style="position: absolute; top: 10px; right: 10px;" class="tooltip">
+                    <img src="123s.png" alt="Tooltip" style="width: 30px; height: 30px;">
+                    <span class="tooltiptext">
+                    число умножается на процент и делится на 100</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

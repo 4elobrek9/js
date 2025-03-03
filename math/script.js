@@ -23,7 +23,6 @@ function checkNumbers() {
 }
 
 function gcd(a, b) {
-    // Алгоритм Евклида для нахождения НОД
     a = Math.abs(a);
     b = Math.abs(b);
     while (b !== 0) {
@@ -35,7 +34,6 @@ function gcd(a, b) {
 }
 
 function lcm(a, b) {
-    // НОК = (a * b) / НОД
     return (a * b) / gcd(a, b);
 }
 
@@ -49,7 +47,8 @@ function findNok() {
     }
 
     const result = lcm(num1, num2); // Находим НОК
-    document.getElementById('nokResult').innerText = 'Наименьшее общее кратное: ' + result;
+    document.getElementById('nokResult').innerText =
+    'Наименьшее общее кратное: ' + result;
 }
 
 function findNod() {
@@ -62,72 +61,42 @@ function findNod() {
     }
 
     const result = gcd(num1, num2); // Находим НОД
-    document.getElementById('nodResult').innerText = 'Наибольший общий делитель: ' + result;
+    document.getElementById('nodResult').innerText =
+    'Наибольший общий делитель: ' + result;
 }
 
-// function createSakura() {
-//     const sakura = document.createElement('img');
-//     sakura.src = 'sakura-Photoroom.png'; // Замените на URL вашего изображения лепестка
-//     sakura.alt = 'Сакура';
-//     sakura.width = 30;
-//     sakura.className = 'sakura';
-    
-//     // Установка случайной позиции по горизонтали
-//     const randomX = Math.random() * 100;
-//     sakura.style.left = `${randomX}vw`;
-
-//     // Установка случайной анимации
-//     const animationDuration = Math.random() * 5 + 5; // от 5 до 10 секунд
-//     sakura.style.animationDuration = `${animationDuration}s`;
-
-//     document.body.appendChild(sakura);
-
-//     // Удаление лепестка после завершения анимации
-//     sakura.addEventListener('animationend', () => {
-//         sakura.remove();
-//     });
-// }
-
-// // Создание лепестков сакуры каждые 1 секунду
-// setInterval(createSakura, 100);
-
-const MAX_SAKURA = 50; // Максимальное количество лепестков
-let sakuraCount = 0; // Счетчик текущих лепестков
+const MAX_SAKURA = 50;
+let sakuraCount = 0;
 
 function createSakura() {
-    // Проверка, не превышает ли текущее количество лепестков максимальное
     if (sakuraCount >= MAX_SAKURA) {
-        return; // Прекратить выполнение, если лимит достигнут
+        return;
     }
 
     const sakura = document.createElement('img');
-    sakura.src = 'sakura-Photoroom.png'; // Замените на URL вашего изображения лепестка
+    sakura.src = 'sakura-Photoroom.png';
     sakura.alt = 'Сакура';
     sakura.width = 30;
     sakura.className = 'sakura';
     
-    // Установка случайной позиции по горизонтали
     const randomX = Math.random() * 100;
-    sakura.style.position = 'absolute'; // Добавлено для правильного позиционирования
+    sakura.style.position = 'absolute';
     sakura.style.left = `${randomX}vw`;
 
-    // Установка случайной анимации
-    const animationDuration = Math.random() * 5 + 5; // от 5 до 10 секунд
+    const animationDuration = Math.random() * 5 + 5;
     sakura.style.animationDuration = `${animationDuration}s`;
 
     document.body.appendChild(sakura);
-    sakuraCount++; // Увеличение счетчика при создании нового лепестка
+    sakuraCount++;
 
-    // Удаление лепестка после завершения анимации
     sakura.addEventListener('animationend', function handler() {
-        sakura.removeEventListener('animationend', handler); // Удалить обработчик события
-        sakura.remove(); // Удалить элемент
-        sakuraCount--; // Уменьшение счетчика при удалении лепестка
+        sakura.removeEventListener('animationend', handler);
+        sakura.remove();
+        sakuraCount--;
     });
 }
 
-// Создание лепестков сакуры каждые 1 секунду
-setInterval(createSakura, 1000); // Изменено на 1000 мс (1 секунда)
+setInterval(createSakura, 1000);
 
 document.getElementById('hamburger').onclick = function() {
     const menu = document.getElementById('menu');
@@ -136,15 +105,15 @@ document.getElementById('hamburger').onclick = function() {
     if (menu.style.display === 'flex') {
         menu.style.display = 'none';
         buttons.forEach(btn => {
-            btn.style.opacity = '0'; // Скрываем кнопки
-            btn.style.transform = 'translateY(20px)'; // Сдвигаем вниз
+            btn.style.opacity = '0';
+            btn.style.transform = 'translateY(20px)';
         });
     } else {
         menu.style.display = 'flex';
         buttons.forEach((btn, index) => {
-            btn.style.transitionDelay = `${index * 100}ms`; // Задержка для каждой кнопки
-            btn.style.opacity = '0.2'; // Показываем кнопки
-            btn.style.transform = 'translateY(0)'; // Возвращаем на место
+            btn.style.transitionDelay = `${index * 100}ms`;
+            btn.style.opacity = '0.2';
+            btn.style.transform = 'translateY(0)';
         });
     }
 };
@@ -152,19 +121,18 @@ document.getElementById('hamburger').onclick = function() {
 function find_ez_num() {
     const num = parseInt(document.getElementById('ez_num').value);
     const factors = primeFactors(num);
-    document.getElementById('res_ez_num').innerText = `Простые множители числа ${num}: ${factors.join(', ')}`;
+    document.getElementById('res_ez_num').innerText =
+    `Простые множители числа ${num}: ${factors.join(', ')}`;
 }
 
 function primeFactors(n) {
     const factors = [];
     
-    // Проверка делимости на 2
     while (n % 2 === 0) {
         factors.push(2);
         n /= 2;
     }
 
-    // Проверка на нечетные числа начиная с 3
     for (let i = 3; i <= Math.sqrt(n); i += 2) {
         while (n % i === 0) {
             factors.push(i);
@@ -172,10 +140,17 @@ function primeFactors(n) {
         }
     }
 
-    // Если n осталось больше 2, то это простой множитель
     if (n > 2) {
         factors.push(n);
     }
 
     return factors;
+}
+
+function find_proz() {
+    const proz11 = document.getElementById('proz1').value;
+    const proz22 = document.getElementById('proz2').value;
+    let prozz = ((proz11 * proz22) / 100);
+    document.getElementById('prozzz').innerText =
+    `процент от числа равен ${prozz} `;
 }

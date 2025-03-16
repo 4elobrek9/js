@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGMA TV - Поиск фильмов</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SIGMA TV</h1>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+        <nav id="genreMenu" class="hidden">
+            <ul>
+                <li><a href="#" onclick="searchByGenre('action')">Экшн</a></li>
+                <li><a href="#" onclick="searchByGenre('comedy')">Комедия</a></li>
+                <li><a href="#" onclick="searchByGenre('drama')">Драма</a></li>
+                <li><a href="#" onclick="searchByGenre('horror')">Ужасы</a></li>
+                <li><a href="#" onclick="searchByGenre('romance')">Романтика</a></li>
+                <li><a href="#" onclick="searchByGenre('thriller')">Триллер</a></li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <form id="searchForm">
+                <input type="text" id="movieTitle" placeholder="Введите название фильма" required>
+                <select id="movieType">
+                    <option value="movie">Фильм</option>
+                    <option value="series">Сериал</option>
+                    <option value="episode">Эпизод</option>
+                </select>
+                <button type="submit">Поиск</button>
+            </form>
+            <div id="results"></div>
+            <div id="pagination"></div>
+            <div id="details"></div>
+        </div>
+        <aside class="sidebar">
+            <h2>Популярные новинки</h2>
+            <div id="popularMovies"></div> <!-- Секция для популярных новинок -->
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

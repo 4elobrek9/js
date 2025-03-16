@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб Приложение с Анимацией</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Веб Приложение</h1>
+        <nav>
+            <button onclick="showTask(1)">Статистика строки</button>
+            <button onclick="showTask(2)">Двузначное число в текст</button>
+            <button onclick="showTask(3)">Замена регистра</button>
+            <button onclick="showTask(4)">CamelCase</button>
+            <button onclick="showTask(5)">Аббревиатура</button>
+            <button onclick="showTask(6)">Объединение строк</button>
+            <button onclick="showTask(7)">Калькулятор</button>
+            <button onclick="showTask(8)">Информация о URL</button>
+            <button onclick="showTask(9)">Разделение строки</button>
+        </nav>
+    </header>
+    <main>
+        <div id="task1" class="task">
+            <h2>Статистика строки</h2>
+            <input type="text" id="stringInput1" placeholder="Введите строку">
+            <button onclick="displayStatistics()">Получить статистику</button>
+            <div id="statisticsResult"></div>
+        </div>
+
+        <div id="task2" class="task" style="display:none;">
+            <h2>Двузначное число в текст</h2>
+            <input type="number" id="numberInput" placeholder="Введите двузначное число">
+            <button onclick="displayNumberText()">Преобразовать</button>
+            <div id="numberTextResult"></div>
+        </div>
+
+        <div id="task3" class="task" style="display:none;">
+            <h2>Замена регистра</h2>
+            <input type="text" id="swapCaseInput" placeholder="Введите строку">
+            <button onclick="displaySwappedCase()">Заменить регистр</button>
+            <div id="swappedCaseResult"></div>
+        </div>
+
+        <div id="task4" class="task" style="display:none;">
+            <h2>CamelCase</h2>
+            <input type="text" id="cssInput" placeholder="Введите CSS стиль">
+            <button onclick="displayCamelCase()">Преобразовать</button>
+            <div id="camelCaseResult"></div>
+        </div>
+
+        <div id="task5" class="task" style="display:none;">
+            <h2>Аббревиатура</h2>
+            <input type="text" id="phraseInput" placeholder="Введите словосочетание">
+            <button onclick="displayAbbreviation()">Создать аббревиатуру</button>
+            <div id="abbreviationResult"></div>
+        </div>
+
+        <div id="task6" class="task" style="display:none;">
+            <h2>Объединение строк</h2>
+            <input type="text" id="concatInput" placeholder="Введите строки через запятую">
+            <button onclick="displayConcatenatedString()">Объединить</button>
+            <div id="concatenatedResult"></div>
+        </div>
+
+        <div id="task7" class="task" style="display:none;">
+            <h2>Калькулятор</h2>
+            <input type="text" id="calcInput" placeholder="Введите пример (например, 3+5)">
+            <button onclick="displayCalculationResult()">Решить</button>
+            <div id="calculationResult"></div>
+        </div>
+
+        <div id="task8" class="task" style="display:none;">
+            <h2>Информация о URL</h2>
+            <input type="text" id="urlInput" placeholder="Введите URL">
+            <button onclick="displayUrlInfo()">Получить информацию</button>
+            <div id="urlInfoResult"></div>
+        </div>
+
+        <div id="task9" class="task" style="display:none;">
+            <h2>Разделение строки</h2>
+            <input type="text" id="splitInput" placeholder="Введите строку">
+            <input type="text" id="delimiterInput" placeholder="Введите разделитель">
+            <button onclick="displaySplitResult()">Разделить</button>
+            <div id="splitResult"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Веб Приложение</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

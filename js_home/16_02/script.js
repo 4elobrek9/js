@@ -4,7 +4,6 @@ function showTask(taskNumber) {
     document.getElementById(`task${taskNumber}`).style.display = 'block';
 }
 
-// 1. Статистика строки
 function stringStatistics(str) {
     let letterCount = 0;
     let digitCount = 0;
@@ -33,7 +32,6 @@ function displayStatistics() {
     document.getElementById('statisticsResult').innerHTML = `Буквы: ${result.letters}, Цифры: ${result.digits}, Другие знаки: ${result.others}`;
 }
 
-// 2. Двузначное число в текст
 function numberToText(num) {
     const units = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
     const tens = ["", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
@@ -54,7 +52,6 @@ function displayNumberText() {
     document.getElementById('numberTextResult').innerHTML = result;
 }
 
-// 3. Замена регистра
 function swapCaseAndReplaceDigits(str) {
     let result = "";
 
@@ -79,7 +76,6 @@ function displaySwappedCase() {
     document.getElementById('swappedCaseResult').innerHTML = result;
 }
 
-// 4. CamelCase
 function toCamelCase(cssString) {
     return cssString.split('-').map((word, index) => {
         if (index === 0) return word;
@@ -93,7 +89,6 @@ function displayCamelCase() {
     document.getElementById('camelCaseResult').innerHTML = result;
 }
 
-// 5. Аббревиатура
 function createAbbreviation(phrase) {
     return phrase.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
 }
@@ -104,7 +99,7 @@ function displayAbbreviation() {
     document.getElementById('abbreviationResult').innerHTML = result;
 }
 
-// 6. Объединение строк
+
 function concatenateStrings(...strings) {
     let result = "";
     for (let str of strings) {
@@ -194,7 +189,7 @@ function splitString(str, delimiter) {
             currentSubstring += char;
         }
     }
-    result.push(currentSubstring); // добавляем последнюю подстроку
+    result.push(currentSubstring);
 
     return result;
 }

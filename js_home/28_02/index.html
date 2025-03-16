@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мульти тул типо</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Трекбар</h2>
+    <div id="track">
+        <div id="pointer"></div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Галерея</h2>
+    <div class="gallery">
+        <img id="galleryImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVXkBzXpWs24sz8lY_gm3rFeOY_MgXAlGFVw&s" alt="Изображение">
+    </div>
+    <button id="prevBtn">Назад</button>
+    <button id="nextBtn">Вперед</button>
+</div>
+
+<div class="container">
+    <h2>Информационные блоки</h2>
+    <div class="header">Заголовок 1</div>
+    <div class="content">Содержимое 1</div>
+
+    <div class="header">Заголовок 2</div>
+    <div class="content">Содержимое 2</div>
+
+    <div class="header">Заголовок 3</div>
+    <div class="content">Содержимое 3</div>
+</div>
+
+<div class="container">
+    <h2>Новости</h2>
+    <div id="news"></div>
+    <button id="loadMore">Загрузить еще новости</button>
+</div>
+
+<div class="container">
+    <h2>Календарь</h2>
+    <input type="number" id="monthInput" placeholder="Месяц (1-12)" min="1" max="12">
+    <input type="number" id="yearInput" placeholder="Год" min="1">
+    <button id="generateCalendar">Сгенерировать календарь</button>
+    <div id="calendar"></div>
+</div>
+
+<div class="container">
+    <h2>Список ссылок</h2>
+    <ul id="linkList">
+        <li><a href="http://example.com">Пример 1</a></li>
+        <li><a href="https://example.org">Пример 2</a></li>
+        <li><a href="#local">Локальная ссылка</a></li>
+        <li><a href="http://example.net">Пример 3</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <h2>Список книг</h2>
+    <div class="book">Книга 1</div>
+    <div class="book">Книга 2</div>
+    <div class="book">Книга 3</div>
+    <div class="book">Книга 4</div>
+</div>
+
+<div class="container">
+    <h2>Редактирование текста</h2>
+    <div id="editableText" contenteditable="true">Это текст, который можно редактировать. Нажмите Ctrl+E для редактирования.</div>
+</div>
+
+<div class="container">
+    <h2>Сортировка таблицы</h2>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th data-type="string">Имя</th>
+                <th data-type="number">Возраст</th>
+                <th data-type="string">Город</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Алексей</td>
+                <td>25</td>
+                <td>Москва</td>
+            </tr>
+            <tr>
+                <td>Иван</td>
+                <td>30</td>
+                <td>Санкт-Петербург</td>
+            </tr>
+            <tr>
+                <td>Мария</td>
+                <td>22</td>
+                <td>Казань</td>
+            </tr>
+            <tr>
+                <td>Ольга</td>
+                <td>28</td>
+                <td>Екатеринбург</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

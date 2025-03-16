@@ -1,8 +1,7 @@
-const apiKey = 'cf778048'; // Замените на ваш API ключ
+const apiKey = 'cf778048';
 let currentPage = 1;
 let totalPages = 1;
 
-// Слушатель события для формы поиска
 document.getElementById('searchForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const title = document.getElementById('movieTitle').value;
@@ -10,13 +9,11 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
     searchMovies(title, type);
 });
 
-// Функция для поиска фильмов по названию
 function searchMovies(title, type) {
-    currentPage = 1; // Сбросить на первую страницу
+    currentPage = 1;
     fetchMovies(title, type, currentPage);
 }
 
-// Функция для получения фильмов из API
 function fetchMovies(title, type, page) {
     const url = `http://www.omdbapi.com/?s=${encodeURIComponent(title)}&type=${type}&page=${page}&apikey=${apiKey}`;
     
@@ -35,7 +32,6 @@ function fetchMovies(title, type, page) {
         .catch(error => console.error('Ошибка:', error));
 }
 
-// Функция для отображения результатов поиска
 function displayResults(movies) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
@@ -52,7 +48,6 @@ function displayResults(movies) {
     });
 }
 
-// Функция для отображения пагинации
 function displayPagination() {
     const paginationDiv = document.getElementById('pagination');
     paginationDiv.innerHTML = '';
@@ -68,7 +63,6 @@ function displayPagination() {
     }
 }
 
-// Функция для получения деталей фильма
 function getMovieDetails(imdbID) {
     const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`;
     
@@ -84,7 +78,6 @@ function getMovieDetails(imdbID) {
         .catch(error => console.error('Ошибка:', error));
 }
 
-// Функция для отображения деталей фильма
 function displayDetails(movie) {
     const detailsDiv = document.getElementById('details');
     detailsDiv.innerHTML = `
@@ -100,12 +93,10 @@ function displayDetails(movie) {
     `;
 }
 
-// Функция для поиска фильмов по жанру
 function searchByGenre(genre) {
     fetchMovies(genre, 'movie', currentPage);
 }
 
-// Функция для открытия и закрытия меню
 function toggleMenu() {
     const menu = document.getElementById('genreMenu');
     menu.classList.toggle('hidden');
@@ -127,7 +118,6 @@ function fetchPopularMovies() {
         .catch(error => console.error('Ошибка:', error));
 }
 
-// Функция для отображения популярных фильмов
 function displayPopularMovies(movies) {
     const popularMoviesDiv = document.getElementById('popularMovies');
     popularMoviesDiv.innerHTML = '';
@@ -144,5 +134,4 @@ function displayPopularMovies(movies) {
     });
 }
 
-// Вызов функции для получения популярных фильмов при загрузке страницы
 fetchPopularMovies();

@@ -6,7 +6,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* Темный фон */
+    background-color: #1a1a1a;
     color: #fff;
 }
 
@@ -14,7 +14,7 @@ body {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    background: #2c2c2c; /* Фон контейнера */
+    background: #2c2c2c;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
@@ -37,7 +37,7 @@ h1 {
     position: relative;
     cursor: pointer;
     z-index: 10;
-    margin-top: 10px; /* Отступ сверху для размещения под заголовком */
+    margin-top: 10px;
 }
 
 .menu-toggle .bar {
@@ -51,7 +51,7 @@ h1 {
 
 nav {
     position: absolute;
-    top: 70px; /* Сдвигаем вниз от шапки, чтобы меню появлялось под иконкой */
+    top: 70px;
     right: 0;
     background: #333;
     width: 200px;
@@ -85,7 +85,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: #28a745; /* Цвет при наведении */
+    background: #28a745;
 }
 
 .main-content {
@@ -182,7 +182,7 @@ button:hover {
 
 .sidebar {
     flex: 1;
-    background: #333; /* Фон боковой панели */
+    background: #333;
     padding: 20px;
     border-left: 1px solid #444;
 }
@@ -200,7 +200,6 @@ button:hover {
     border-radius: 4px;
 }
 
-/* Анимация тряски для меню */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }

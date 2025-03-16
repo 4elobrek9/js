@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебные Задания</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Учебные Задания</h1>
+        <nav>
+            <button onclick="showTask(1)">Задание 1</button>
+            <button onclick="showTask(2)">Задание 2</button>
+            <button onclick="showTask(3)">Задание 3</button>
+            <button onclick="showTask(4)">Задание 4</button>
+        </nav>
+    </header>
+    <main>
+        <div id="task1" class="task">
+            <h2>Задание 1: Список покупок</h2>
+            <input type="text" id="productName" placeholder="Название продукта">
+            <input type="number" id="productQuantity" placeholder="Количество" min="1">
+            <button onclick="addPurchase()">Добавить покупку</button>
+            <button onclick="buyProduct()">Купить продукт</button>
+            <div id="shoppingList"></div>
+        </div>
+
+        <div id="task2" class="task" style="display:none;">
+            <h2>Задание 2: Чек в магазине</h2>
+            <input type="text" id="receiptName" placeholder="Название товара">
+            <input type="number" id="receiptQuantity" placeholder="Количество" min="1">
+            <input type="number" id="receiptPrice" placeholder="Цена за единицу" min="0" step="0.01">
+            <button onclick="addToReceipt()">Добавить в чек</button>
+            <button onclick="printReceipt()">Распечатать чек</button>
+            <div id="receiptList"></div>
+        </div>
+
+        <div id="task3" class="task" style="display:none;">
+            <h2>Задание 3: CSS-стили</h2>
+            <input type="text" id="styleText" placeholder="Текст">
+            <input type="text" id="styleColor" placeholder="Цвет">
+            <input type="text" id="styleFontSize" placeholder="Размер шрифта">
+            <button onclick="applyStyles()">Применить стили</button>
+            <div id="styledText"></div>
+        </div>
+
+        <div id="task4" class="task" style="display:none;">
+            <h2>Задание 4: Аудитории академии</h2>
+            <input type="text" id="classroomName" placeholder="Название аудитории">
+            <input type="number" id="classroomSeats" placeholder="Количество мест" min="10" max="20">
+            <input type="text" id="classroomFaculty" placeholder="Факультет">
+            <button onclick="addClassroom()">Добавить аудиторию</button>
+            <button onclick="displayClassrooms()">Показать аудитории</button>
+            <div id="classroomList"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

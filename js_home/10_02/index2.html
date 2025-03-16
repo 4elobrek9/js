@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Палитра цветов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Палитра цветов</h1>
+        <div id="color-palette" class="palette">
+        </div>
+
+        <form id="color-form" class="form">
+            <label for="color-name">Название цвета:</label>
+            <input type="text" id="color-name" name="color-name" required>
+
+            <label for="color-type">Тип цвета:</label>
+            <select id="color-type" name="color-type" required>
+                <option value="RGB">RGB</option>
+                <option value="RGBA">RGBA</option>
+                <option value="HEX">HEX</option>
+            </select>
+
+            <label for="color-picker">Выберите цвет:</label>
+            <input type="color" id="color-picker" name="color-picker" value="#ffffff">
+
+            <label for="color-code">Код цвета:</label>
+            <input type="text" id="color-code" name="color-code" required>
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

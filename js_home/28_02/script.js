@@ -22,7 +22,6 @@ track.addEventListener('mousemove', (event) => {
     }
 });
 
-// Галерея
 const images = [
     'https://img2.freepng.ru/20180604/pkr/aa9ny5n5d.webp',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQYCvvFnCEJkDGLfy8130O7tfnn26pikGMsQ&s',
@@ -50,10 +49,8 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     }
 });
 
-// Инициализация галереи
 updateImage();
 
-// Информационные блоки
 const headers = document.querySelectorAll('.header');
 
 headers.forEach(header => {
@@ -68,7 +65,6 @@ headers.forEach(header => {
     });
 });
 
-// Новости
 const newsArray = [
     'Новость 1',
     'Новость 2',
@@ -92,7 +88,6 @@ function loadNews() {
 
 document.getElementById('loadMore').addEventListener('click', loadNews);
 
-// Календарь
 function generateCalendar(month, year) {
     const calendarDiv = document.getElementById('calendar');
     calendarDiv.innerHTML = '';
@@ -132,7 +127,6 @@ document.getElementById('generateCalendar').addEventListener('click', () => {
     }
 });
 
-// Список ссылок
 const links = document.querySelectorAll('#linkList a');
 
 links.forEach(link => {
@@ -141,7 +135,6 @@ links.forEach(link => {
     }
 });
 
-// Список книг
 const books = document.querySelectorAll('.book');
 let lastClickedIndex = null;
 
@@ -178,7 +171,6 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Сортировка таблицы
 const table = document.getElementById('dataTable');
 
 table.querySelectorAll('th').forEach(th => {

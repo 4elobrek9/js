@@ -28,15 +28,15 @@ h2 {
 }
 
 .gallery img {
-    width: 45%; /* Задаем ширину изображения 20% */
-    height: auto; /* Высота будет пропорциональной */
-    margin: 10px; /* Отступы между изображениями */
-    border-radius: 8px; /* Закругление углов изображений */
-    transition: transform 0.3s; /* Плавный эффект при наведении */
+    width: 45%;
+    height: auto;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s;
 }
 
 .gallery img:hover {
-    transform: scale(1.05); /* Увеличение изображения при наведении */
+    transform: scale(1.05);
 }
 
 /* Трекбар */
@@ -80,13 +80,11 @@ button:active {
     animation: explode 0.5s forwards;
 }
 
-/* Анимация взрыва */
 @keyframes explode {
     0% { transform: scale(1); }
     50% { transform: scale(1.5); opacity: 0; }
 }
 
-/* Информационные блоки */
 .header {
     cursor: pointer;
     background: #007BFF;
@@ -109,7 +107,6 @@ button:active {
     margin-bottom: 10px;
 }
 
-/* Календарь */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -128,7 +125,6 @@ th {
     color: white;
 }
 
-/* Список книг */
 .book {
     cursor: pointer;
     padding: 10px;
@@ -147,7 +143,6 @@ th {
     color: #ff9800;
 }
 
-/* Список ссылок */
 a {
     text-decoration: none;
     color: #007BFF;

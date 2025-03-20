@@ -4,269 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SigmaGram</title>
-  <style>
-    /* Стили, повторяющие внешний вид оригинального изображения */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .phone-frame {
-      width: 100%;
-      max-width: 400px;
-      height: 100%;
-      max-height: 800px;
-      background-color: #2d1934;
-      border: 20px solid #5d0697;
-      border-radius: 30px;
-      position: relative;
-      overflow: hidden;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background-color: #341c3c;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-    .header-left .icon {
-      width: 24px;
-      height: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-right: 10px;
-    }
-    .header-left .icon .line {
-      width: 100%;
-      height: 2px;
-      background-color: #fff;
-    }
-    .header-title {
-      margin-left: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-    }
-    .header-right {
-      width: 30px;
-      height: 30px;
-      background-image: url('./img/луп_чист.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin-left: auto; /* Отодвигаем вправо */
-    }
-    .chat-list {
-      /* padding: 20px; */
-      transition: transform 0.4s ease-in-out; /* Ускорена анимация */
-      overflow-y: auto; /* Добавлено для прокрутки */
-    }
-    .chat-item {
-      display: flex;
-      align-items: center;
-      background-color: #2d1934;
-      padding: 10px;
-      border: #000;
-      border-radius: 10px;
-      /* margin-bottom: 20px; */
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .chat-item:hover {
-      background-color: #555;
-    }
-    .chat-item .avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-    .chat-item .message-info {
-      flex-grow: 1;
-    }
-    .chat-item .message-info .title {
-      font-weight: bold;
-    }
-    .chat-item .message-info .content {
-      color: #aaa;
-    }
-    .chat-item .time {
-      font-size: 12px;
-      color: #aaa;
-    }
-    .side-menu {
-      position: absolute;
-      top: 0;
-      left: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: #444;
-      padding: 20px;
-      box-sizing: border-box;
-      transition: left 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; /* Элементы по левому краю */
-    }
-    .side-menu.open {
-      left: 0;
-    }
-    .profile-block {
-      background-image: url('https://images.wallpaperscraft.ru/image/single/serdechki_ogni_svechenie_147987_225x300.jpg');
-      background-size: cover;
-      background-position: center top; /* Показать верхнюю часть */
-      width: 100%;
-      height: 150px; /* Высота блока профиля */
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; /* Выровнены по левому краю */
-      padding: 10px;
-      color: #fff;
-      position: relative; /* Для позиционирования стрелочки */
-    }
-    .profile-block .avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-    .profile-block .name {
-      font-size: 18px;
-      font-weight: bold;
-      display: inline-block; /* Для совместимости со стрелочкой */
-    }
-    .profile-block .id {
-      font-size: 14px;
-      color: #aaa;
-    }
-    .profile-block .dropdown-arrow {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      padding: 3px;
-      margin-left: 5px;
-      transform: rotate(45deg);
-      position: absolute; /* Позиционирование относительно блока */
-      right: 10px; /* Отступ справа */
-      top: 42%; /* Отступ сверху, ниже ника */
-    }
-
-
-    .settings-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: none;
-      flex-direction: column;
-      align-items: flex-start; /* Элементы по левому краю */
-      justify-content: flex-start;
-      z-index: 10;
-      padding: 20px;
-    }
-    .settings-menu.active {
-      display: flex;
-    }
-    .settings-menu .close-settings {
-      cursor: pointer;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .settings-menu .setting-item {
-      background-color: #444;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 10px 0;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-    }
-    .rotate-message {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #1b1b1b;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      display: none;
-    }
-    .chat-window {
-      display: none;
-      flex-direction: column;
-      height: 80vh; /* Высота окна чата */
-      background-color: #222;
-      padding: 20px;
-      border-radius: 10px;
-      position: absolute;
-      top: 7vh; /* Отступ сверху */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 82%; /* Ширина окна чата */
-    }
-    .chat-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .chat-header .back-arrow {
-      cursor: pointer;
-      width: 20px;
-      height: 20px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      padding: 3px;
-      transform: rotate(135deg);
-    }
-    .chat-messages {
-      flex-grow: 1;
-      overflow-y: auto; /* Прокрутка сообщений */
-      margin-bottom: 10px;
-    }
-    .chat-input {
-      display: flex;
-    }
-    .chat-input input {
-      flex-grow: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-right: 10px;
-      background-color: #333;
-      color: #fff;
-    }
-    .chat-input button {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #444;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="phone-frame">
@@ -286,10 +24,11 @@
         <img class="avatar" src="./img/альтушка.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">АЛЬТУШКА 😏</div>
-          <div class="content">Когда ипаться?</div>
+          <div class="content">Выспался?)</div>
         </div>
-        <div class="time">cp</div>
+        <div class="time">9:40</div>
       </div>
+      <div class="separator"></div>
       <div class="chat-item" onclick="openChat('Чат 2')">
         <img class="avatar" src="./img/моя ава.jpg" alt="Avatar">
         <div class="message-info">
@@ -298,14 +37,16 @@
         </div>
         <div class="time">01:46</div>
       </div>
+      <div class="separator"></div>
       <div class="chat-item" onclick="openChat('Чат 3')">
         <img class="avatar" src="./img/helper.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">𝕄𝕣.ℍ𝕖𝕝𝕡𝕖𝕣</div>
-          <div class="content">С вам 9500, карта наличными?</div>
+          <div class="content">С вас 9500, картой или наличными?</div>
         </div>
         <div class="time">10:25</div>
       </div>
+      <div class="separator"></div>
       <div class="chat-item" onclick="openChat('Чат 4')">
         <img class="avatar" src="./img/TOF.jpg" alt="Avatar">
         <div class="message-info">
@@ -314,6 +55,7 @@
         </div>
         <div class="time">Вчера</div>
       </div>
+      <div class="separator"></div>
       <div class="chat-item" onclick="openChat('Чат 5')">
         <img class="avatar" src="./img/лучшая.jpg" alt="Avatar">
         <div class="message-info">
@@ -322,12 +64,13 @@
         </div>
         <div class="time">21:16</div>
       </div>
+      <div class="separator"></div>
     </div>
     <div class="side-menu">
       <div class="profile-block">
         <img class="avatar" src="https://dthezntil550i.cloudfront.net/w1/latest/w11906110323031110009617316/e564f187-7ccb-4510-9a6d-8eadfb0ab1a2.jpg" alt="Avatar" id="profile-avatar">
         <div class="name" id="profile-name">❤️‍🔥 ヨルハ二号B型 ❤️‍🔥
-          <div class="dropdown-arrow"></div> <!-- Стрелочка ниже ника -->
+          <div class="dropdown-arrow"></div>
         </div>
         <div class="id" id="profile-id">@123</div>
       </div>
@@ -360,130 +103,6 @@
     <div class="setting-item" onclick="changeID()">Сменить ID</div>
   </div>
 
-  <script>
-    // Открытие меню настроек
-    const settingsButton = document.getElementById('settings-button');
-    const settingsMenu = document.getElementById('settings-menu');
-
-    settingsButton.addEventListener('click', () => {
-      settingsMenu.classList.toggle('active');
-    });
-
-    function closeSettings() {
-      settingsMenu.classList.remove('active');
-    }
-
-    function changeAvatar() {
-      const newAvatar = prompt("Введите ссылку на новую аватарку:");
-      if (newAvatar) {
-        document.getElementById('profile-avatar').src = newAvatar;
-      }
-    }
-
-    function changeName() {
-      const newName = prompt("Введите новый ник:");
-      if (newName) {
-        document.getElementById('profile-name').textContent = newName;
-      }
-    }
-
-    function changeID() {
-      const newID = prompt("Введите новый ID:");
-      if (newID) {
-        document.getElementById('profile-id').textContent = "@" + newID;
-      }
-    }
-
-    // Открытие чата
-    function openChat(chatName) {
-      document.getElementById('chat-window').style.display = 'flex';
-      document.getElementById('chat-title').textContent = chatName;
-      document.getElementById('chat-messages').innerHTML = `<strong>${chatName}</strong><br>`;
-    }
-
-    // Закрытие чата
-    function closeChat() {
-      document.getElementById('chat-window').style.display = 'none';
-    }
-
-    // Отправка сообщения
-    function sendMessage() {
-      const input = document.getElementById('message-input');
-      const message = input.value.trim();
-      if (message) {
-        const messagesContainer = document.getElementById('chat-messages');
-        messagesContainer.innerHTML += `<div>${message}</div>`;
-        input.value = ''; // Очистка поля ввода
-        messagesContainer.scrollTop = messagesContainer.scrollHeight; // Прокрутка вниз
-      }
-    }
-
-    // Обработчик клика на 3 полоски
-    const menuIcon = document.querySelector('.header-left .icon');
-    const sideMenu = document.querySelector('.side-menu');
-    const phoneFrame = document.querySelector('.phone-frame');
-    const chatList = document.querySelector('.chat-list');
-
-    menuIcon.addEventListener('click', () => {
-      sideMenu.classList.toggle('open');
-      if (sideMenu.classList.contains('open')) {
-        chatList.style.transform = `translateX(${sideMenu.offsetWidth * 0.75}px)`;
-      } else {
-        chatList.style.transform = 'translateX(0)';
-      }
-    });
-
-    // Обработчик клика вне меню для закрытия меню
-    phoneFrame.addEventListener('click', (event) => {
-      if (event.target !== menuIcon && !sideMenu.contains(event.target)) {
-        sideMenu.classList.remove('open');
-        chatList.style.transform = 'translateX(0)';
-      }
-    });
-
-    // Обработчик свайпов для открытия/закрытия меню
-    let startX, currentX, initialX, xOffset = 0;
-    let active = false;
-
-    phoneFrame.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      active = true;
-    });
-
-    phoneFrame.addEventListener('touchmove', (e) => {
-      if (active) {
-        currentX = e.touches[0].clientX;
-        xOffset = (currentX - startX) * 0.5;
-
-        if (xOffset > 0) {
-          sideMenu.style.left = `0`;
-          chatList.style.transform = `translateX(${xOffset}px)`;
-        } else {
-          sideMenu.style.left = `${xOffset}px`;
-          chatList.style.transform = `translateX(${xOffset}px)`;
-        }
-      }
-    });
-
-    phoneFrame.addEventListener('touchend', (e) => {
-      initialX = currentX;
-      active = false;
-
-      if (xOffset > 100) {
-        sideMenu.classList.add('open');
-        chatList.style.transform = `translateX(${sideMenu.offsetWidth * 0.75}px)`;
-      } else if (xOffset < -100) {
-        sideMenu.classList.remove('open');
-        chatList.style.transform = 'translateX(0)';
-      } else if (xOffset < 0) {
-        closeChat(); // Закрытие чата при свайпе вправо
-      } else {
-        sideMenu.style.left = '-300px';
-        chatList.style.transform = 'translateX(0)';
-      }
-
-      xOffset = 0;
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

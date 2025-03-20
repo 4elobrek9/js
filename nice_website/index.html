@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <style>
+    /* Стили, повторяющие внешний вид оригинального изображения */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .phone-frame {
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      max-height: 800px;
+      background-color: #1b1b1b;
+      border: 20px solid #333;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #333;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .header-left .icon {
+      width: 24px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 10px;
+    }
+    .header-left .icon .line {
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .header-right .icon {
+      margin-left: 10px;
+      background-color: #444;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .header-right .icon.active {
+      background-color: #555;
+    }
+    .chat-list {
+      padding: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .chat-item {
+      display: flex;
+      align-items: center;
+      background-color: #444;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .chat-item .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .chat-item .message-info {
+      flex-grow: 1;
+    }
+    .chat-item .message-info .title {
+      font-weight: bold;
+    }
+    .chat-item .message-info .content {
+      color: #aaa;
+    }
+    .chat-item .time {
+      font-size: 12px;
+      color: #aaa;
+    }
+    .side-menu {
+      position: absolute;
+      top: 0;
+      left: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: #444;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: left 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .side-menu.open {
+      left: 0;
+    }
+    .side-menu .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .side-menu .profile .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .side-menu .profile .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 70px;
+    }
+    .side-menu .menu-items {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .side-menu .menu-items a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+    .side-menu .menu-items a:hover {
+      background-color: #555;
+    }
+    .rotate-message {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #1b1b1b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="header">
+      <div class="header-left">
+        <div class="icon">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="icon active">All</div>
+        <div class="icon">Личные</div>
+        <div class="icon">Friends</div>
+        <div class="icon">IT</div>
+        <div class="icon">C</div>
+      </div>
+    </div>
+    <div class="chat-list">
+      <div class="chat-item">
+        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <div class="message-info">
+          <div class="title">Wow, this the life of unkn ...</div>
+          <div class="content">Sticker</div>
+        </div>
+        <div class="time">cp</div>
+      </div>
+      <div class="chat-item">
+        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <div class="message-info">
+          <div class="title">Подвал</div>
+          <div class="content">По итогу тебе скину</div>
+        </div>
+        <div class="time">01:46:24</div>
+      </div>
+      <div class="chat-item">
+        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <div class="message-info">
+          <div class="title">Новый чат</div>
+          <div class="content">Привет, как дела?</div>
+        </div>
+        <div class="time">10:25</div>
+      </div>
+      <div class="chat-item">
+        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <div class="message-info">
+          <div class="title">Группа разработчиков</div>
+          <div class="content">Обсудим новый проект</div>
+        </div>
+        <div class="time">Вчера</div>
+      </div>
+      <div class="chat-item">
+        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <div class="message-info">
+          <div class="title">Семья</div>
+          <div class="content">Когда приедешь домой?</div>
+        </div>
+        <div class="time">2 дня назад</div>
+      </div>
+      <!-- Добавьте остальные элементы чата -->
+    </div>
+    <div class="side-menu">
+      <div class="profile">
+        <img class="avatar" src="https://via.placeholder.com/60" alt="Avatar">
+        <div class="name">Иван Иванов</div>
+      </div>
+      <div class="menu-items">
+        <a href="#">Профиль</a>
+        <a href="#">Настройки</a>
+      </div>
+    </div>
+  </div>
+  <div class="rotate-message" style="display: none;">
+    Пожалуйста, поверните телефон в вертикальное положение
+  </div>
+
+  <script>
+    // Добавляем обработчики кликов на кнопки
+    const icons = document.querySelectorAll('.header-right .icon');
+    icons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        // Убираем активность со всех кнопок
+        icons.forEach(i => i.classList.remove('active'));
+        // Добавляем активность на нажатую кнопку
+        icon.classList.add('active');
+      });
+    });
+
+    // Обработчик клика на 3 полоски
+    const menuIcon = document.querySelector('.header-left .icon');
+    const sideMenu = document.querySelector('.side-menu');
+    const phoneFrame = document.querySelector('.phone-frame');
+    const chatList = document.querySelector('.chat-list');
+
+    menuIcon.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
+      if (sideMenu.classList.contains('open')) {
+        chatList.style.transform = `translateX(${sideMenu.offsetWidth * 0.75}px)`;
+      } else {
+        chatList.style.transform = 'translateX(0)';
+      }
+    });
+
+    // Обработчик клика вне меню для закрытия меню
+    phoneFrame.addEventListener('click', (event) => {
+      if (event.target !== menuIcon && !sideMenu.contains(event.target)) {
+        sideMenu.classList.remove('open');
+        chatList.style.transform = 'translateX(0)';
+      }
+    });
+
+    // Обработчик свайпов для открытия/закрытия меню
+    let startX, currentX, initialX, xOffset = 0;
+    let active = false;
+
+    phoneFrame.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      active = true;
+    });
+
+    phoneFrame.addEventListener('touchmove', (e) => {
+      if (active) {
+        currentX = e.touches[0].clientX;
+        xOffset = (currentX - startX) * 0.5;
+
+        if (xOffset > 0) {
+          sideMenu.style.left = `0`;
+          chatList.style.transform = `translateX(${xOffset}px)`;
+        } else {
+          sideMenu.style.left = `${xOffset}px`;
+          chatList.style.transform = `translateX(${xOffset}px)`;
+        }
+      }
+    });
+
+    phoneFrame.addEventListener('touchend', (e) => {
+      initialX = currentX;
+      active = false;
+
+      if (xOffset > 100) {
+        sideMenu.classList.add('open');
+        chatList.style.transform = `translateX(${sideMenu.offsetWidth * 0.75}px)`;
+      } else if (xOffset < -100) {
+        sideMenu.classList.remove('open');
+        chatList.style.transform = 'translateX(0)';
+      } else {
+        sideMenu.style.left = '-300px';
+        chatList.style.transform = 'translateX(0)';
+      }
+
+      xOffset = 0;
+    });
+
+    // Проверка ориентации экрана
+    function checkScreenOrientation() {
+      const rotateMessage = document.querySelector('.rotate-message');
+      if (window.innerWidth > 1920 && window.innerHeight > 1080) {
+        rotateMessage.style.display = 'none';
+      } else if (window.innerHeight > window.innerWidth) {
+        rotateMessage.style.display = 'none';
+      } else {
+        rotateMessage.style.display = 'flex';
+      }
+    }
+
+    window.addEventListener('resize', checkScreenOrientation);
+    checkScreenOrientation();
+  </script>
+</body>
+</html>

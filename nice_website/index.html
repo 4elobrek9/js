@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat App</title>
+  <title>SigmaGram</title>
   <style>
     /* Стили, повторяющие внешний вид оригинального изображения */
     body {
@@ -22,8 +22,8 @@
       max-width: 400px;
       height: 100%;
       max-height: 800px;
-      background-color: #1b1b1b;
-      border: 20px solid #333;
+      background-color: #2d1934;
+      border: 20px solid #5d0697;
       border-radius: 30px;
       position: relative;
       overflow: hidden;
@@ -33,7 +33,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px;
-      background-color: #333;
+      background-color: #341c3c;
     }
     .header-left {
       display: flex;
@@ -62,24 +62,24 @@
     .header-right {
       width: 30px;
       height: 30px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/61/61115.png'); /* Ссылка на изображение лупы */
+      background-image: url('./img/луп_чист.png');
       background-size: contain;
       background-repeat: no-repeat;
       margin-left: auto; /* Отодвигаем вправо */
     }
     .chat-list {
-      padding: 20px;
-      transition: transform 0.2s ease-in-out; /* Ускорена анимация */
+      /* padding: 20px; */
+      transition: transform 0.4s ease-in-out; /* Ускорена анимация */
       overflow-y: auto; /* Добавлено для прокрутки */
-      height: 60vh; /* Ограничение высоты списка чатов */
     }
     .chat-item {
       display: flex;
       align-items: center;
-      background-color: #444;
+      background-color: #2d1934;
       padding: 10px;
+      border: #000;
       border-radius: 10px;
-      margin-bottom: 20px;
+      /* margin-bottom: 20px; */
       position: relative;
       overflow: hidden;
       cursor: pointer;
@@ -125,7 +125,7 @@
       left: 0;
     }
     .profile-block {
-      background-image: url('https://happyhouse.guru/uploads/posts/2023-03/1678266672_happyhouse-guru-p-oboi-minimalizm-svetlie-krasivo-1.jpg');
+      background-image: url('https://images.wallpaperscraft.ru/image/single/serdechki_ogni_svechenie_147987_225x300.jpg');
       background-size: cover;
       background-position: center top; /* Показать верхнюю часть */
       width: 100%;
@@ -164,8 +164,10 @@
       transform: rotate(45deg);
       position: absolute; /* Позиционирование относительно блока */
       right: 10px; /* Отступ справа */
-      top: 40px; /* Отступ сверху, ниже ника */
+      top: 42%; /* Отступ сверху, ниже ника */
     }
+
+
     .settings-menu {
       position: fixed;
       top: 0;
@@ -220,10 +222,10 @@
       padding: 20px;
       border-radius: 10px;
       position: absolute;
-      top: 10vh; /* Отступ сверху */
+      top: 7vh; /* Отступ сверху */
       left: 50%;
       transform: translateX(-50%);
-      width: 90%; /* Ширина окна чата */
+      width: 82%; /* Ширина окна чата */
     }
     .chat-header {
       display: flex;
@@ -281,50 +283,50 @@
     </div>
     <div class="chat-list">
       <div class="chat-item" onclick="openChat('Чат 1')">
-        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <img class="avatar" src="./img/альтушка.jpg" alt="Avatar">
         <div class="message-info">
-          <div class="title">Чат 1</div>
-          <div class="content">Последнее сообщение...</div>
+          <div class="title">АЛЬТУШКА 😏</div>
+          <div class="content">Когда ипаться?</div>
         </div>
         <div class="time">cp</div>
       </div>
       <div class="chat-item" onclick="openChat('Чат 2')">
-        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <img class="avatar" src="./img/моя ава.jpg" alt="Avatar">
         <div class="message-info">
-          <div class="title">Чат 2</div>
-          <div class="content">По итогу тебе скину</div>
+          <div class="title">❤️‍🔥 彼岸花 ❤️‍🔥</div>
+          <div class="content">Сосал???</div>
         </div>
-        <div class="time">01:46:24</div>
+        <div class="time">01:46</div>
       </div>
       <div class="chat-item" onclick="openChat('Чат 3')">
-        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <img class="avatar" src="./img/helper.jpg" alt="Avatar">
         <div class="message-info">
-          <div class="title">Чат 3</div>
-          <div class="content">Привет, как дела?</div>
+          <div class="title">𝕄𝕣.ℍ𝕖𝕝𝕡𝕖𝕣</div>
+          <div class="content">С вам 9500, карта наличными?</div>
         </div>
         <div class="time">10:25</div>
       </div>
       <div class="chat-item" onclick="openChat('Чат 4')">
-        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <img class="avatar" src="./img/TOF.jpg" alt="Avatar">
         <div class="message-info">
-          <div class="title">Чат 4</div>
-          <div class="content">Обсудим новый проект</div>
+          <div class="title">📃 • TOF #NEWS</div>
+          <div class="content">Сигма: ну чё делаем дальше?</div>
         </div>
         <div class="time">Вчера</div>
       </div>
       <div class="chat-item" onclick="openChat('Чат 5')">
-        <img class="avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        <img class="avatar" src="./img/лучшая.jpg" alt="Avatar">
         <div class="message-info">
-          <div class="title">Чат 5</div>
-          <div class="content">Когда приедешь домой?</div>
+          <div class="title">❤️‍🔥 ЛУЧШАЯ НА СВЕТЕ ❤️‍🔥</div>
+          <div class="content">Скоро будешь? 👉👈</div>
         </div>
-        <div class="time">2 дня назад</div>
+        <div class="time">21:16</div>
       </div>
     </div>
     <div class="side-menu">
       <div class="profile-block">
-        <img class="avatar" src="https://via.placeholder.com/60" alt="Avatar" id="profile-avatar">
-        <div class="name" id="profile-name">Иван Иванов
+        <img class="avatar" src="https://dthezntil550i.cloudfront.net/w1/latest/w11906110323031110009617316/e564f187-7ccb-4510-9a6d-8eadfb0ab1a2.jpg" alt="Avatar" id="profile-avatar">
+        <div class="name" id="profile-name">❤️‍🔥 ヨルハ二号B型 ❤️‍🔥
           <div class="dropdown-arrow"></div> <!-- Стрелочка ниже ника -->
         </div>
         <div class="id" id="profile-id">@123</div>

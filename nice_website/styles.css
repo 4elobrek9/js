@@ -32,7 +32,7 @@
         font-weight: 20;
       }
       .www {
-      padding-left: 66%;
+      padding-left: 64%;
       }
       .header {
         display: flex;
@@ -81,7 +81,7 @@
       }
       .chat-item {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         background-color: #2d1934;
         padding: 2%;
         border: #000;

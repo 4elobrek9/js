@@ -122,3 +122,20 @@ phoneFrame.addEventListener('touchend', (e) => {
   xOffset = 0;
 });
 ``
+class Time {
+  constructor(displayElementId) {
+      this.displayElement = document.getElementById(displayElementId);
+      this.updateTime(); // Первоначальное обновление времени
+      setInterval(() => this.updateTime(), 1000); // Обновление каждую секунду
+  }
+
+  updateTime() {
+      const now = new Date(); // Получаем текущее время
+      const hours = String(now.getHours()).padStart(2, '0'); // Часы
+      const minutes = String(now.getMinutes()).padStart(2, '0'); // Минуты
+      const seconds = String(now.getSeconds()).padStart(2, '0'); // Секунды
+      this.displayElement.textContent = `${hours}:${minutes}`; // Обновляем текст
+  }
+}
+
+const time = new Time('timeDisplay');

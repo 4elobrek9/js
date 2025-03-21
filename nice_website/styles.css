@@ -1,4 +1,3 @@
-    /* Стили, повторяющие внешний вид оригинального изображения */
     body {
         font-family: Arial, sans-serif;
         background-color: #000;
@@ -20,6 +19,20 @@
         border-radius: 30px;
         position: relative;
         overflow: hidden;
+      }
+      .phone-head{
+        display: flex;
+        align-items: center;
+      }
+      .time_in {
+        margin-top: 2%;
+        margin-left: 3%;
+        margin-bottom: 2%;
+        font-family: 'Arial', sans-serif;
+        font-weight: 20;
+      }
+      .www {
+      padding-left: 66%;
       }
       .header {
         display: flex;
@@ -53,12 +66,13 @@
         color: #fff;
       }
       .header-right {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         background-image: url('./img/луп_чист.png');
         background-size: contain;
         background-repeat: no-repeat;
-        margin-left: auto; /* Отодвигаем вправо */
+        margin-left: auto;
+        padding: 0.5%;
       }
       .chat-list {
         /* padding: 20px; */
@@ -69,7 +83,7 @@
         display: flex;
         align-items: center;
         background-color: #2d1934;
-        padding: 10px;
+        padding: 2%;
         border: #000;
         border-radius: 10px;
         /* margin-bottom: 20px; */
@@ -171,17 +185,13 @@
         display: flex;
         align-items: center;
         background-color: #5d0697; /* Основной цвет фона */
-        padding: 12px 16px; /* Отступы для кнопки */
         border: none; /* Убираем стандартные границы */
-        border-radius: 10px; /* Закругленные углы */
         color: #fff; /* Цвет текста */
-        font-size: 16px; /* Размер шрифта */
         font-weight: bold; /* Жирный шрифт */
         cursor: pointer; /* Указатель при наведении */
         transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
     }
     .menu-items {
-        margin-top: 20px; /* Отступ сверху */
         width: 100%; /* Ширина блока меню */
     }
     
@@ -190,7 +200,6 @@
         padding: 12px 16px; /* Отступы для элементов меню */
         background-color: #360d52; /* Цвет фона */
         color: #fff; /* Цвет текста */
-        border-radius: 8px; /* Закругленные углы */
         text-decoration: none; /* Убираем подчеркивание */
         font-size: 16px; /* Размер шрифта */
         font-weight: bold; /* Жирный шрифт */

@@ -84,6 +84,8 @@
         /* align-items: center; */
         background-color: #2d1934;
         padding: 2%;
+        padding-top: 1%;
+        padding-bottom: 1%;
         border: #000;
         border-radius: 10px;
         /* margin-bottom: 20px; */
@@ -94,10 +96,10 @@
       }
       .separator, .separator1 {
       height: 0.5px;
-      background-color: #220e29;
-      margin: 10px 0; /* Удалите отступ слева */
+      background-color: #000000;
+      margin: 10px 0;
       margin-left: 5vh;
-      width: 83%; /* Установите ширину, чтобы полоска занимала нужное место */
+      width: 83%;
   }
       .chat-item:hover {
         background-color: #555;

@@ -61,11 +61,35 @@ function sendMessage() {
   const message = input.value.trim();
   if (message) {
     const messagesContainer = document.getElementById('chat-messages');
-    messagesContainer.innerHTML += `<div>${message}</div>`;
+    
+    // Создаем новое сообщение
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', 'sent');
+
+    // Получаем текущее время
+    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    // Создаем элемент для текста сообщения
+    const messageText = document.createElement('span');
+    messageText.textContent = message;
+
+    // Создаем элемент для времени
+    const timeElement = document.createElement('span');
+    timeElement.classList.add('message-time');
+    timeElement.textContent = currentTime;
+
+    // Добавляем текст и время в сообщение
+    messageElement.appendChild(messageText);
+    messageElement.appendChild(timeElement);
+
+    // Добавляем сообщение в контейнер
+    messagesContainer.appendChild(messageElement);
+    
     input.value = ''; // Очистка поля ввода
     messagesContainer.scrollTop = messagesContainer.scrollHeight; // Прокрутка вниз
   }
 }
+
 
 // Обработчик клика на 3 полоски
 const menuIcon = document.querySelector('.header-left .icon');

@@ -388,30 +388,86 @@ body {
 .chat-messages {
   flex-grow: 1; /* Позволяет блоку расти */
   overflow-y: auto; /* Прокрутка сообщений */
-  margin-bottom: 10px; /* Отступ снизу */
   background-image: url("https://avatars.dzeninfra.ru/get-zen_doc/9195055/pub_648a0eec9506570f87e0b518_648a0efcc4bec04674773e9d/scale_1200");
   background-size: cover; /* Покрывает весь блок */
   background-position: center; /* Центрирует изображение */
   background-repeat: no-repeat; /* Не повторяет изображение */
+  padding: 10px; /* Добавляем отступы */
 }
+
+.message {
+  max-width: 80%; /* Ограничиваем ширину сообщения */
+  padding: 10px; /* Отступы внутри сообщения */
+  margin: 2px 0; /* Уменьшаем отступы между сообщениями */
+  position: relative; /* Для псевдоэлементов */
+  align-self: flex-end; /* Выравнивание по правому краю */
+  opacity: 0.9; /* Прозрачность сообщения */
+}
+
+.message.sent {
+  background-color: rgba(93, 6, 151, 0.9); /* Цвет фона для отправленных сообщений с прозрачностью */
+  color: white; /* Цвет текста */
+  border-top-left-radius: 20px; /* Скругление верхнего левого угла */
+  border-bottom-left-radius: 20px; /* Скругление нижнего левого угла */
+}
+
+.message.sent:first-child {
+  border-top-right-radius: 25px; /* Круглый верхний правый угол для первого сообщения */
+}
+
+.message.sent:last-child {
+  border-bottom-right-radius: 5px; /* Круглый нижний правый угол для последнего сообщения */
+  border-top-right-radius: 0; /* Убираем скругление у верхнего правого угла */
+}
+
+.message.sent:last-child::after {
+  content: ""; /* Псевдоэлемент без содержимого */
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: 0; /* На уровне нижней части сообщения */
+  right: -10px; /* Сдвинут вправо для нахождения на краешке */
+  width: 20px; /* Ширина прямоугольника */
+  height: 10px; /* Высота прямоугольника */
+  background-color: rgba(93, 6, 151, 0.9); /* Цвет сообщения */
+  border-top-left-radius: 10px; /* Закругление верхнего левого угла */
+  border-top-right-radius: 10px; /* Закругление верхнего правого угла */
+}
+
+.message-time {
+  display: block; /* Отображаем время на новой строке */
+  font-size: 10px; /* Размер шрифта для времени */
+  color: rgba(255, 255, 255, 0.7); /* Цвет времени с прозрачностью */
+  text-align: right; /* Выравнивание времени по правому краю */
+}
+
+.message.sent:not(:last-child) {
+  border-bottom-right-radius: 5px; /* Убираем скругление у нижнего правого угла для всех кроме последнего */
+}
+
 .chat-input {
   display: flex;
   padding: 2%;
+  background-color: #341c3c;
+}
+#message-input {
+  border: none; /* Убираем обводку */
+  outline: none; /* Убираем обводку при фокусе */
+  padding: 10px; /* Добавляем отступы для удобства */
+  width: 100%; /* Ширина 100% для адаптивности */
+  box-sizing: border-box; /* Учитываем отступы в ширине */
+  border-radius: 5px; /* Скругление углов (по желанию) */
 }
 .chat-input input {
   flex-grow: 1;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   margin-right: 10px;
-  background-color: #333;
-  color: #fff;
+  background-color: #341c3c;
 }
 .chat-input button {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #444;
-  color: #fff;
+  background-color: #341c3c;
   cursor: pointer;
 }

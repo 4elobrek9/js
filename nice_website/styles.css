@@ -333,6 +333,7 @@ body {
   height: 20px;
   border: solid white;
   border-width: 0 2px 2px 0;
+  margin-top: 5px;
   padding: 3px;
   transform: rotate(135deg);
 }

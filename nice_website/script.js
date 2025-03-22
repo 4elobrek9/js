@@ -31,7 +31,7 @@ function changeID() {
   }
 }
 
-// Открытие чата
+
 function openChat(chatName) {
   document.getElementById('chat-window').style.display = 'flex';
   document.getElementById('chat-title').textContent = chatName;

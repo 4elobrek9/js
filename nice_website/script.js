@@ -23,6 +23,18 @@ function changeName() {
     document.getElementById('profile-name').textContent = newName;
   }
 }
+function updateHeaderTitle() {
+  const profileName = document.getElementById('profile-name').innerText;
+  const headerTitle = document.querySelector('.header-title');
+  headerTitle.innerText = profileName;
+}
+
+// Обновляем заголовок при загрузке страницы
+updateHeaderTitle();
+
+// Если нужно обновлять заголовок при изменении имени, можно использовать MutationObserver
+const observer = new MutationObserver(updateHeaderTitle);
+observer.observe(document.getElementById('profile-name'), { childList: true, subtree: true });
 
 function changeID() {
   const newID = prompt("Введите новый ID:");

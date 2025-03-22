@@ -83,8 +83,8 @@ body {
   cursor: pointer;
 }
 .header-left .icon {
-  width: 24px;
-  height: 18px;
+  width: 20px;
+  height: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -131,10 +131,10 @@ body {
   transition: background-color 0.3s;
 }
 .separator, .separator1 {
-  height: 0.5px;
+  height: 0.2px;
   background-color: #000000;
   margin: 10px 0;
-  margin-left: 5vh;
+  margin-left: 6vh;
   width: 83%;
 }
 .chat-item:hover {
@@ -329,13 +329,16 @@ body {
 }
 .chat-header .back-arrow {
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  border: solid white;
+  width: 40px;
+  height: auto;
   border-width: 0 2px 2px 0;
   margin-top: 5px;
   padding: 3px;
-  transform: rotate(135deg);
+  /* transform: rotate(135deg); */
+}
+.back-arrow {
+  margin-top: 10%;
+  width: 100%;
 }
 .chat-messages {
   flex-grow: 1;

@@ -113,7 +113,7 @@ phoneFrame.addEventListener('touchend', (e) => {
     sideMenu.classList.remove('open');
     chatList.style.transform = 'translateX(0)';
   } else if (xOffset < 0) {
-    closeChat(); // Закрытие чата при свайпе вправо
+    closeChat();
   } else {
     sideMenu.style.left = '-300px';
     chatList.style.transform = 'translateX(0)';

@@ -44,10 +44,10 @@ function changeID() {
 }
 
 
-function openChat(chatName) {
+function openChat(chatName, avatarUrl) {
   document.getElementById('chat-window').style.display = 'flex';
   document.getElementById('chat-title').textContent = chatName;
-  document.getElementById('chat-messages').innerHTML = `<strong>${chatName}</strong><br>`;
+  document.querySelector('.ch-avatar').src = avatarUrl; // Обновляем аватар в заголовке чата
 }
 
 // Закрытие чата

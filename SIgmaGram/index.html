@@ -24,7 +24,7 @@
       <div class="header-right"></div>
     </div>
     <div class="chat-list">
-      <div class="chat-item" onclick="openChat('WOMAN')">
+      <div class="chat-item" onclick="openChat('WOMAN', './img/альтушка.jpg')">
         <img class="avatar" src="./img/альтушка.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">WOMAN</div>
@@ -33,7 +33,7 @@
         <div class="time">9:40</div>
       </div>
       <div class="separator"></div>
-      <div class="chat-item" onclick="openChat('Чат 2')">
+      <div class="chat-item" onclick="openChat('❤️‍🔥 彼岸花 ❤️‍🔥', './img/моя ава.jpg')">
         <img class="avatar" src="./img/моя ава.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">❤️‍🔥 彼岸花 ❤️‍🔥</div>
@@ -42,7 +42,7 @@
         <div class="time">01:46</div>
       </div>
       <div class="separator"></div>
-      <div class="chat-item" onclick="openChat('Чат 3')">
+      <div class="chat-item" onclick="openChat('𝕄𝕣.ℍ𝕖𝕝𝕡𝕖𝕣', './img/helper.jpg')">
         <img class="avatar" src="./img/helper.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">𝕄𝕣.ℍ𝕖𝕝𝕡𝕖𝕣</div>
@@ -51,7 +51,7 @@
         <div class="time">10:25</div>
       </div>
       <div class="separator"></div>
-      <div class="chat-item" onclick="openChat('Чат 4')">
+      <div class="chat-item" onclick="openChat('📃 • TOF #NEWS', './img/TOF.jpg')">
         <img class="avatar" src="./img/TOF.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">📃 • TOF #NEWS</div>
@@ -60,7 +60,7 @@
         <div class="time">Вчера</div>
       </div>
       <div class="separator"></div>
-      <div class="chat-item" onclick="openChat('Чат 5')">
+      <div class="chat-item" onclick="openChat('❤️‍🔥 ЛЕГЕНДА ❤️‍🔥', './img/лучшая.jpg')">
         <img class="avatar" src="./img/лучшая.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">❤️‍🔥 ЛЕГЕНДА ❤️‍🔥</div>
@@ -69,7 +69,7 @@
         <div class="time">21:16</div>
       </div>
       <div class="separator"></div>
-    </div>
+    </div>    
     <div class="side-menu">
       <div class="profile-block">
         <img class="avatar" src="https://dthezntil550i.cloudfront.net/w1/latest/w11906110323031110009617316/e564f187-7ccb-4510-9a6d-8eadfb0ab1a2.jpg" alt="Avatar" id="profile-avatar">
@@ -87,10 +87,16 @@
   <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div class="back-arrow" onclick="closeChat()">
-        <img class="back-arrow" src="./img/стрелка.png"></img>
+        <img src="./img/стрелка.png" alt="Back Arrow">
       </div>
-      
-      <div id="chat-title" style="font-weight: bold;">Чат</div>
+      <img class="ch-avatar" src="./img/chat-avatar.png" alt="Avatar">
+      <div class="header-info">
+        <div id="chat-title">Чат</div>
+        <div class="last-seen">был(а) в 10:25</div> <!-- Информация о последнем заходе -->
+      </div>
+      <img class="phone" src="./img/phone.png" alt="phone">
+      <div class="vertical-dot">⋮</div> <!-- Вертикальное троеточие -->
+
     </div>
     <div class="chat-messages" id="chat-messages"></div>
     <div class="chat-input">

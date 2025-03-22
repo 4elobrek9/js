@@ -24,7 +24,10 @@ body {
   }
   .www {
     z-index: 12;
-    padding-left: 16%;
+    padding-left: 15%;
+  }
+  .separator, .separator1 {
+    width: 80%;
   }
 }
 
@@ -39,7 +42,10 @@ body {
   }
   .www {
     z-index: 12;
-    padding-left: 77%;
+    padding-left: 79%;
+  }
+  .separator, .separator1 {
+    width: 86%;
   }
 }
 
@@ -135,7 +141,6 @@ body {
   background-color: #000000;
   margin: 10px 0;
   margin-left: 6vh;
-  width: 83%;
 }
 .chat-item:hover {
   background-color: #555;
@@ -314,39 +319,84 @@ body {
   flex-direction: column;
   height: 100%;
   background-color: #222;
-  padding: 20px;
   border-radius: 10px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%; /* Ширина окна чата */
+  width: 100%;
+
+}
+.ch-avatar{
+  border-radius: 50%;
 }
 .chat-header {
-  margin-top: 5%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  background-color: #341c3c;
+  height: 8%;
+  padding-top: 7%;
+  position: relative;
 }
-.chat-header .back-arrow {
-  cursor: pointer;
-  width: 40px;
-  height: auto;
-  border-width: 0 2px 2px 0;
-  margin-top: 5px;
-  padding: 3px;
-  /* transform: rotate(135deg); */
-}
+
 .back-arrow {
-  margin-top: 10%;
-  width: 100%;
+  margin-right: 10px; /* Отступ между стрелкой и аватаром */
+}
+
+.back-arrow img {
+  width: 40px; /* Уменьшите размер стрелочки */
+  height: auto; /* Автоматическая высота */
+}
+
+.ch-avatar {
+  width: 40px; /* Установите нужный размер аватара */
+  height: auto; /* Автоматическая высота */
+  margin-right: 10px; /* Отступ между аватаром и информацией */
+}
+
+.header-info {
+  flex-grow: 1;
+}
+
+#chat-title {
+  font-weight: bold;
+  font-size: 18px; /* Размер шрифта для заголовка */
+}
+
+.last-seen {
+  font-size: 14px; /* Размер шрифта для последнего захода */
+  color: #aaa; /* Цвет для текста последнего захода */
+  white-space: nowrap; /* Запрет на перенос строк */
+}
+.phone{
+  position: absolute;
+  height: 50px;
+  width: auto;
+  margin-left: 75%;
+  top: 40%;
+  color: #fff;
+}
+.vertical-dot {
+  position: absolute; /* Позиционирование относительно родителя */
+  height: 10%;
+  width: auto;
+  right: 15px;
+  top: 55%;
+  transform: translateY(-50%);
+  font-size: 24px; /* Размер для вертикального троеточия */
+  color: #fff; /* Цвет для троеточия */
 }
 .chat-messages {
-  flex-grow: 1;
+  flex-grow: 1; /* Позволяет блоку расти */
   overflow-y: auto; /* Прокрутка сообщений */
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Отступ снизу */
+  background-image: url("https://avatars.dzeninfra.ru/get-zen_doc/9195055/pub_648a0eec9506570f87e0b518_648a0efcc4bec04674773e9d/scale_1200");
+  background-size: cover; /* Покрывает весь блок */
+  background-position: center; /* Центрирует изображение */
+  background-repeat: no-repeat; /* Не повторяет изображение */
 }
 .chat-input {
   display: flex;
+  padding: 2%;
 }
 .chat-input input {
   flex-grow: 1;

@@ -1,4 +1,3 @@
-// Открытие меню настроек
 const settingsButton = document.getElementById('settings-button');
 const settingsMenu = document.getElementById('settings-menu');
 
@@ -23,16 +22,15 @@ function changeName() {
     document.getElementById('profile-name').textContent = newName;
   }
 }
+
 function updateHeaderTitle() {
   const profileName = document.getElementById('profile-name').innerText;
   const headerTitle = document.querySelector('.header-title');
   headerTitle.innerText = profileName;
 }
 
-// Обновляем заголовок при загрузке страницы
 updateHeaderTitle();
 
-// Если нужно обновлять заголовок при изменении имени, можно использовать MutationObserver
 const observer = new MutationObserver(updateHeaderTitle);
 observer.observe(document.getElementById('profile-name'), { childList: true, subtree: true });
 
@@ -43,55 +41,44 @@ function changeID() {
   }
 }
 
-
 function openChat(chatName, avatarUrl) {
   document.getElementById('chat-window').style.display = 'flex';
   document.getElementById('chat-title').textContent = chatName;
-  document.querySelector('.ch-avatar').src = avatarUrl; // Обновляем аватар в заголовке чата
+  document.querySelector('.ch-avatar').src = avatarUrl;
 }
 
-// Закрытие чата
 function closeChat() {
   document.getElementById('chat-window').style.display = 'none';
 }
 
-// Отправка сообщения
 function sendMessage() {
   const input = document.getElementById('message-input');
   const message = input.value.trim();
   if (message) {
     const messagesContainer = document.getElementById('chat-messages');
     
-    // Создаем новое сообщение
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', 'sent');
 
-    // Получаем текущее время
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     
-    // Создаем элемент для текста сообщения
     const messageText = document.createElement('span');
     messageText.textContent = message;
 
-    // Создаем элемент для времени
     const timeElement = document.createElement('span');
     timeElement.classList.add('message-time');
     timeElement.textContent = currentTime;
 
-    // Добавляем текст и время в сообщение
     messageElement.appendChild(messageText);
     messageElement.appendChild(timeElement);
 
-    // Добавляем сообщение в контейнер
     messagesContainer.appendChild(messageElement);
     
-    input.value = ''; // Очистка поля ввода
-    messagesContainer.scrollTop = messagesContainer.scrollHeight; // Прокрутка вниз
+    input.value = '';
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 }
 
-
-// Обработчик клика на 3 полоски
 const menuIcon = document.querySelector('.header-left .icon');
 const sideMenu = document.querySelector('.side-menu');
 const phoneFrame = document.querySelector('.phone-frame');
@@ -106,7 +93,6 @@ menuIcon.addEventListener('click', () => {
   }
 });
 
-// Обработчик клика вне меню для закрытия меню
 phoneFrame.addEventListener('click', (event) => {
   if (event.target !== menuIcon && !sideMenu.contains(event.target)) {
     sideMenu.classList.remove('open');
@@ -114,7 +100,6 @@ phoneFrame.addEventListener('click', (event) => {
   }
 });
 
-// Обработчик свайпов для открытия/закрытия меню
 let startX, currentX, initialX, xOffset = 0;
 let active = false;
 
@@ -157,21 +142,43 @@ phoneFrame.addEventListener('touchend', (e) => {
 
   xOffset = 0;
 });
-``
+
 class Time {
   constructor(displayElementId) {
       this.displayElement = document.getElementById(displayElementId);
-      this.updateTime(); // Первоначальное обновление времени
-      setInterval(() => this.updateTime(), 1000); // Обновление каждую секунду
+      this.updateTime();
+      setInterval(() => this.updateTime(), 1000);
   }
 
   updateTime() {
-      const now = new Date(); // Получаем текущее время
-      const hours = String(now.getHours()).padStart(2, '0'); // Часы
-      const minutes = String(now.getMinutes()).padStart(2, '0'); // Минуты
-      const seconds = String(now.getSeconds()).padStart(2, '0'); // Секунды
-      this.displayElement.textContent = `${hours}:${minutes}`; // Обновляем текст
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      this.displayElement.textContent = `${hours}:${minutes}`;
   }
 }
 
 const time = new Time('timeDisplay');
+
+let isMinecraftFontActive = false;
+
+function toggleFont() {
+  isMinecraftFontActive = !isMinecraftFontActive;
+  updateFontStyle();
+  closeSettings();
+}
+
+function updateFontStyle() {
+  const elements = document.querySelectorAll('body, .chat-item, .header-title, .menu-items a, .setting-item, #message-input, .last-seen, .message');
+  elements.forEach(element => {
+    if (isMinecraftFontActive) {
+      element.style.fontFamily = "'Press Start 2P', monospace";
+    } else {
+      element.style.fontFamily = "Arial, sans-serif";
+    }
+  });
+}
+
+isMinecraftFontActive = false;
+updateFontStyle();

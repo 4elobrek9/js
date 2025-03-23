@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
   font-family: Arial, sans-serif;
   background-color: #000;
@@ -270,14 +272,14 @@ body {
 
 .settings-menu {
   position: fixed;
-  top: 0;
-  left: 0;
+  /* top: 0; */
+  /* left: 0; */
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
   flex-direction: column;
-  align-items: flex-start; /* Элементы по левому краю */
+  align-items: flex-start;
   justify-content: flex-start;
   z-index: 1;
   padding: 20px;

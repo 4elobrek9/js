@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SigmaGram</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <div class="phone-frame">
     <div class="phone-head">
-    <h4 class="time_in" id="timeDisplay">10:10</h4>
-    <img class="www" src="./img/bater.png"></img>
+      <h4 class="time_in" id="timeDisplay">10:10</h4>
+      <img class="www" src="./img/bater.png"></img>
     </div>
     <div class="header">
       <div class="header-left">
@@ -96,7 +96,6 @@
       </div>
       <img class="phone" src="./img/phone.png" alt="phone">
       <div class="vertical-dot">⋮</div>
-
     </div>
     <div class="chat-messages" id="chat-messages"></div>
     <div class="chat-input">
@@ -104,6 +103,7 @@
       <input type="text" id="message-input" placeholder="Cообщение" />
       <button onclick="sendMessage()" style="border: none; background: none; padding: 0;">
         <img src="./img/send.png" alt="Отправить" style="width: auto; height: 45px;">
+      </button>
     </div>
   </div>
 
@@ -119,6 +119,6 @@
     <div class="setting-item" onclick="toggleFont()">Включить/Выключить шрифт undertale</div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>

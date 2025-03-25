@@ -367,23 +367,25 @@ body {
   color: white;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  margin-left: 15%;
+
 }
 .message.sent:first-child {
   border-top-right-radius: 25px;
 }
 .message.sent:last-child {
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10;
 }
 .message.sent:last-child::after {
     content: "";
     position: absolute;
     bottom: 0;
     right: -10px;
-    width: 20px;
+    width: 5%;
     height: 10px;
     background-color: rgba(93, 6, 151, 0.9);
-    border-top-right-radius: 100px;
+    border-top-right-radius: 50px;
 }
 .message-time {
   display: block;

@@ -1,3 +1,4 @@
+// Настройки: открытие/закрытие меню
 const settingsButton = document.getElementById('settings-button');
 const settingsMenu = document.getElementById('settings-menu');
 
@@ -9,6 +10,7 @@ function closeSettings() {
   settingsMenu.classList.remove('active');
 }
 
+// Смена аватарки
 function changeAvatar() {
   const newAvatar = prompt("Введите ссылку на новую аватарку:");
   if (newAvatar) {
@@ -16,6 +18,7 @@ function changeAvatar() {
   }
 }
 
+// Смена ника
 function changeName() {
   const newName = prompt("Введите новый ник:");
   if (newName) {
@@ -23,6 +26,7 @@ function changeName() {
   }
 }
 
+// Обновление заголовка в шапке
 function updateHeaderTitle() {
   const profileName = document.getElementById('profile-name').innerText;
   const headerTitle = document.querySelector('.header-title');
@@ -31,9 +35,11 @@ function updateHeaderTitle() {
 
 updateHeaderTitle();
 
+// Наблюдатель за изменениями в имени профиля
 const observer = new MutationObserver(updateHeaderTitle);
 observer.observe(document.getElementById('profile-name'), { childList: true, subtree: true });
 
+// Смена ID
 function changeID() {
   const newID = prompt("Введите новый ID:");
   if (newID) {
@@ -41,16 +47,17 @@ function changeID() {
   }
 }
 
-function openChat(chatName, avatarUrl) {
-  document.getElementById('chat-window').style.display = 'flex';
-  document.getElementById('chat-title').textContent = chatName;
-  document.querySelector('.ch-avatar').src = avatarUrl;
+// Открытие внешнего сайта
+function openUserSite(url) {
+  window.location.href = url;
 }
 
+// Закрытие чата
 function closeChat() {
   document.getElementById('chat-window').style.display = 'none';
 }
 
+// Отправка сообщения
 function sendMessage() {
   const input = document.getElementById('message-input');
   const message = input.value.trim();
@@ -79,6 +86,7 @@ function sendMessage() {
   }
 }
 
+// Открытие/закрытие бокового меню
 const menuIcon = document.querySelector('.header-left .icon');
 const sideMenu = document.querySelector('.side-menu');
 const phoneFrame = document.querySelector('.phone-frame');
@@ -93,6 +101,7 @@ menuIcon.addEventListener('click', () => {
   }
 });
 
+// Закрытие меню при клике вне его области
 phoneFrame.addEventListener('click', (event) => {
   if (event.target !== menuIcon && !sideMenu.contains(event.target)) {
     sideMenu.classList.remove('open');
@@ -100,6 +109,7 @@ phoneFrame.addEventListener('click', (event) => {
   }
 });
 
+// Свайп для открытия/закрытия меню на мобильных устройствах
 let startX, currentX, initialX, xOffset = 0;
 let active = false;
 
@@ -143,6 +153,7 @@ phoneFrame.addEventListener('touchend', (e) => {
   xOffset = 0;
 });
 
+// Класс для отображения времени
 class Time {
   constructor(displayElementId) {
       this.displayElement = document.getElementById(displayElementId);
@@ -161,6 +172,7 @@ class Time {
 
 const time = new Time('timeDisplay');
 
+// Переключение шрифта
 let isMinecraftFontActive = false;
 
 function toggleFont() {

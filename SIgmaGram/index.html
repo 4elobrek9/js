@@ -24,7 +24,7 @@
       <div class="header-right"></div>
     </div>
     <div class="chat-list">
-      <div class="chat-item" onclick="openChat('WOMAN', './img/альтушка.jpg')">
+      <div class="chat-item" onclick="openUserSite('https://example.com/user1')" data-url="https://example.com/user1">
         <img class="avatar" src="./img/альтушка.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">WOMAN</div>
@@ -33,7 +33,7 @@
         <div class="time">9:40</div>
       </div>
       <div class="separator"></div>
-      <div class="chat-item" onclick="openChat('❤️‍🔥 彼岸花 ❤️‍🔥', './img/моя ава.jpg')">
+      <div class="chat-item" onclick="openUserSite('https://example.com/user2')" data-url="https://example.com/user2">
         <img class="avatar" src="./img/моя ава.jpg" alt="Avatar">
         <div class="message-info">
           <div class="title">❤️‍🔥 彼岸花 ❤️‍🔥</div>
@@ -120,5 +120,16 @@
   </div>
 
   <script src="./scripts/main.js"></script>
+  <script>
+    // Проверка, зарегистрирован ли пользователь
+    const user = localStorage.getItem('user');
+    if (!user) {
+      // Если пользователь не зарегистрирован, перенаправляем на registr.html
+      window.location.href = 'registr.html';
+    } else {
+      // Если зарегистрирован, остаемся на index.html
+      console.log('Пользователь уже зарегистрирован.');
+    }
+  </script>
 </body>
 </html>

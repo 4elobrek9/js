@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация и вход</title>
+  <link rel="stylesheet" href="scripts/modules/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Регистрация</h1>
+    <form id="registerForm">
+      <input type="text" id="registerId" placeholder="Ваш ID (англ., до 12 символов)" required>
+      <input type="password" id="registerPassword" placeholder="Пароль" required>
+      <input type="text" id="registerName" placeholder="Ваш ник" required>
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <h1>Вход</h1>
+    <form id="loginForm">
+      <input type="text" id="loginId" placeholder="Ваш ID" required>
+      <input type="password" id="loginPassword" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+    </form>
+
+    <div id="message"></div>
+  </div>
+
+  <script src="scripts/modules/script.js"></script>
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Генерация уникального ID
+      const userId = Math.random().toString(36).substring(2, 9);
+
+      // Сохранение данных пользователя в localStorage
+      const userData = { username, email, password, userId };
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      // Перенаправление на главную страницу
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

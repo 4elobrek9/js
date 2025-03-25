@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход</title>
+</head>
+<body>
+  <h1>Вход</h1>
+  <form id="login-form">
+    <input type="email" id="email" placeholder="Введите email" required>
+    <input type="password" id="password" placeholder="Введите пароль" required>
+    <button type="submit">Войти</button>
+  </form>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Получение данных пользователя из localStorage
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      // Проверка авторизации
+      if (user && user.email === email && user.password === password) {
+        // Перенаправление на главную страницу
+        window.location.href = 'index.html';
+      } else {
+        alert('Неверный email или пароль');
+      }
+    });
+  </script>
+</body>
+</html>
